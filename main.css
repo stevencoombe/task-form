@@ -1,0 +1,31 @@
+.card {
+    width: 50px;
+    height: 100px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px grey;
+    overflow: auto;
+}
+
+.card:hover {
+    cursor: pointer;
+
+}
+
+.task-top-row {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    gap: 30px;
+    padding: 15px;
+  }
+
+.task-bottom-row {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    gap: 30px;
+    padding: 15px;
+}
+
