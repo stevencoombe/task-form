@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Task Form</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
@@ -11,7 +11,20 @@
 
     <body>
         <h1>Hello World</h1>
-        
+        <div class="Form">
+            <input type="text" id="Task Name" placeholder="Task Name"><br>
+            <input type="text" id="Description" placeholder="Description"><br>
+            <input type="text" id="Assigned To" placeholder="Assigned To"><br>
+            <input type="text" id="Due Date" placeholder="Due Date"><br>
+            
+            <select id="Status" placeholder="Status">
+              <option value="" selected disabled>Status</option>
+              <option>Todo</option>
+              <option>In Progress</option>
+              <option>Review</option>
+              <option>Done</option>
+            </select>
+          </div>      
         <script src="" async defer></script>
     </body>
 </html>
