@@ -17,60 +17,68 @@
     </head>
 
     <body>
-
-        <div id="grad1"></div>
-
-        <h1>Task Planner</h1>
-        <!--Task Layout Cards-->
-        <div class="task-top-row">
-            <div class="card" style="width: 22rem; height: 12rem;">
+      <h1>Task Planner</h1>
+      <!--Task Layout Cards-->
+      <div class="task-top-row">
+          <div class="card" style="width: 18rem; height: 12rem;">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem; height: 12rem;">
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
               </div>
-            </div>
-            <div class="card" style="width: 22rem; height: 12rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                </div>
-            </div>
-            <div class="card" style="width: 22rem; height: 12rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                </div>
-            </div>
-        </div>
-        <div class="task-bottom-row">
-            <div class="card" style="width: 22rem; height: 12rem;">
+          </div>
+          <div class="card" style="width: 18rem; height: 12rem;">
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
               </div>
+          </div>
+      </div>
+      <div class="task-bottom-row">
+          <div class="card" style="width: 18rem; height: 12rem;">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
             </div>
-            <div class="card" style="width: 22rem; height: 12rem;">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-              </div>
+          </div>
+          <div class="card" style="width: 18rem; height: 12rem;">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
             </div>
-            <div class="card" style="width: 22rem; height: 12rem;">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-              </div>
+          </div>
+          <div class="card" style="width: 18rem; height: 12rem;">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
             </div>
-        </div>
+          </div>
+      </div>
 
+     <!--Task form-->
+     <form>
+      <div class="form-box">
+          <label for="Task Name">Task Name:</label>
+          <input type class="form-control" id="Task Name" placeholder="Eg: Codecademy Project">
+        
+           <label for="Description">Task Description:  </label>
+            <textarea class="form-control" id="Description" rows="2"></textarea>
+          
+             <label for="Assign">Assign to:</label>
+              <input type class="form-control" id="Assign">
 
-        <div class="Form">
-            <input type="text" id="Task Name" placeholder="Task Name"><br>
-            <input type="text" id="Description" placeholder="Description"><br>
-            <input type="text" id="Assigned To" placeholder="Assigned To"><br>
-            <input type="text" id="Due Date" placeholder="Due Date"><br>
-            
-            <select id="Status" placeholder="Status">
-              <option value="" selected disabled>Status</option>
-              <option>Todo</option>
-              <option>In Progress</option>
-              <option>Review</option>
-              <option>Done</option>
-            </select>
-          </div>      
-    </body>
+              <label for="Due-date-input">Due Date:</label>
+              <input type="date" name="date" id="date" value="dd/mm/yyyy">
+      
+          
+          <select id="Status" placeholder="Status">
+            <option selected disabled>Status</option>
+            <option>Todo</option>
+            <option>In Progress</option>
+            <option>Review</option>
+            <option>Done</option>
+          </select>                
+          <input type="submit" value="Submit">
+       </div>      
+      </form>
+  </body>
 </html>

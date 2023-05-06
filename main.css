@@ -1,38 +1,68 @@
 .card {
-    width: 50px;
-    height: 100px;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px grey;
-    overflow: auto;
+  width: 50px;
+  height: 100px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px grey;
+  overflow: auto;
 }
 
 .card:hover {
-    cursor: pointer;
+  cursor: pointer;
 
 }
 
 .task-top-row {
-    display: flex;
-    justify-content: left;
-    width: 100%;
-    gap: 30px;
-    padding: 15px;
-  }
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  gap: 30px;
+  padding: 15px;
+}
 
 .task-bottom-row {
-    display: flex;
-    justify-content: left;
-    width: 100%;
-    gap: 30px;
-    padding: 15px;
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  gap: 30px;
+  padding: 15px;
+}
+.form-box {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 400px;
+  margin: 0 auto;
 }
 
-#grad1 {
-  height: 200px;
-  background-color: white;
-  background-image: linear-gradient(white, gray);
+form {
+  display: flex;
+  flex-direction: column;
 }
 
-* {border: 5px solid red}
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
