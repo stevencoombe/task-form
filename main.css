@@ -29,3 +29,8 @@
     padding: 15px;
 }
 
+#grad1 {
+  height: 200px;
+  background-color: white;
+  background-image: linear-gradient(white, gray);
+}
