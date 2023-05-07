@@ -1,6 +1,6 @@
 .card {
-  width: 50px;
-  height: 100px;
+  width: 250px;
+  height: 150px;
   background-color: white;
   border: 1px solid black;
   border-radius: 5px;
@@ -33,7 +33,11 @@
   border: 1px solid #ccc;
   padding: 20px;
   width: 400px;
-  margin: 0 auto;
+  margin-right: auto;
+}
+
+.container {
+  width: 100%;
 }
 
 form {
