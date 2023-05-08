@@ -1,7 +1,7 @@
 body {
     background: linear-gradient(to bottom, #f0f0f0, #b5c683);  
     width: 100%;
-    height: 1000px;
+    height: 100vh;
   }
 
 .card {
@@ -24,6 +24,8 @@ body {
 
 .card:hover {
   cursor: pointer;
+  box-shadow: 5px 6px 6px 2px #659265;
+    transform: scale(1.1);
 }
 
 .task-top-row {
@@ -100,5 +102,5 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: hsl(123, 40%, 45%);
 }
