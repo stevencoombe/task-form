@@ -24,11 +24,12 @@ body {
 
 .card:hover {
   cursor: pointer;
-  box-shadow: 5px 6px 6px 2px #659265;
+  box-shadow: 5px 6px 6px 2px #8b9764;
     transform: scale(1.1);
 }
 
 .task-top-row {
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -40,6 +41,7 @@ body {
 }
 
 .task-bottom-row {
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -52,8 +54,8 @@ body {
 .form-box {
   position: relative;
   margin: auto;
-  top: 171px;
-  background-color: #dde0d6;
+  top: 180px;
+  background-color: #e9ece6;
   border: 1px solid #bebebe;
   padding: 20px;
   width: 380px;
