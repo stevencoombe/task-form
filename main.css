@@ -1,23 +1,10 @@
-* {
-  border: 1px;
-
-}
 body {
     background: linear-gradient(to bottom, #f0f0f0, #b5c683);  
     width: 100%;
-    height: 100vh;
+    height: 1000px;
   }
 
-.parent {
-  width: 80;
-  height: 60;
-  margin: auto;
-  margin-top: 10%;
-}
 .card {
-  margin-left: auto;
-  margin-right: auto;
-  align-self: center;
   width: 250px;
   height: 150px;
   background-color: #f2f2f2;
@@ -31,24 +18,28 @@ body {
   position: relative;
   left: 10px;
   top: 140px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card:hover {
   cursor: pointer;
-
 }
 
 .task-top-row {
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   top: 150px;
   display: flex;
-  justify-content: left;
   width: 100%;
   gap: 30px;
   padding: 15px;
 }
 
 .task-bottom-row {
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   top: 150px;
   display: flex;
@@ -57,17 +48,13 @@ body {
   padding: 15px;
 }
 .form-box {
-  margin-left: auto;
-  margin-right: auto;
-  align-self: center;
   position: relative;
+  margin: auto;
   top: 171px;
-  left: 20px;
   background-color: #dde0d6;
   border: 1px solid #bebebe;
   padding: 20px;
   width: 380px;
-  margin-right: auto;
   box-shadow: 2px 2px 5px grey;
 }
 
@@ -75,33 +62,28 @@ label {
   display: block;
     margin-bottom: 2px;}
 
-.Due-date-input {
-  position: relative;
-  left: 10px;
-}
-
 input#Due-date-input {
-  width: 144px; /* Decrease the width of the input to 150px */
+  width: 144px;
   line-height: 1.36;
+  position: relative;
 }
 
 .container {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  appearance: 20px;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  float: right;
 }
 
 label {
   font-weight: bold;
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
+input textarea {
   padding: 10px;
   margin-bottom: 0px;
   border: 1px solid #ccc;
@@ -119,9 +101,4 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #45a049;
-}
-
-body {
-  background-color: linear-gradient(white 50%, gray 50%);
-  color: white;
 }
