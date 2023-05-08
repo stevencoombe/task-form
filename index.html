@@ -17,164 +17,65 @@
         <title>Task Form</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-
-    
+    </head>   
   <body>
     <div class="container">
-      <h1 class="heading">Task Planner</h1>
+      <header class="heading">
+        <h1>Task Planner</h1>
+      </header>
       <div class="row">
-      <div class="col">
-        <!--Task layout cards-->
-        <div class="task-top-row">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title stretched-link" data-bs-toggle="modal" data-bs-target="#taskOneModal">Task One</h5>
-              </div>
-            </div>
-            <div class="card">
+        <div class="col">
+          <!--Task layout cards-->
+          <div class="task-top-row">
+              <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title stretched-link" data-bs-toggle="modal" data-bs-target="#taskTwoModal">Task Two</h5>
+                  <h5 class="card-title stretched-link" data-bs-toggle="modal" data-bs-target="#taskOneModal">Task One</h5>
                 </div>
-            </div>
-            <div class="card">
+              </div>
+              <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title stretched-link" data-bs-toggle="modal" data-bs-target="#taskTwoModal">Task Two</h5>
+                  </div>
+              </div>
+              <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title stretched-link" data-bs-toggle="modal" data-bs-target="#taskThreeModal">Task Three</h5>
+                  </div>
+              </div>
+          </div>
+          <div class="task-bottom-row">
+              <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title stretched-link" data-bs-toggle="modal" data-bs-target="#taskThreeModal">Task Three</h5>
+                  <h5 class="card-title stretched-link" data-bs-toggle="modal" data-bs-target="#taskFourModal">Task Four</h5>
                 </div>
-            </div>
-        </div>
-        <div class="task-bottom-row">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title stretched-link" data-bs-toggle="modal" data-bs-target="#taskFourModal">Task Four</h5>
               </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title stretched-link" data-bs-toggle="modal" data-bs-target="#taskFiveModal">Task Five</h5>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title stretched-link" data-bs-toggle="modal" data-bs-target="#taskFiveModal">Task Five</h5>
+                </div>
               </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title stretched-link" data-bs-toggle="modal" data-bs-target="#taskSixModal">Task Six</h5>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title stretched-link" data-bs-toggle="modal" data-bs-target="#taskSixModal">Task Six</h5>
+                </div>
               </div>
-            </div>
-        </div>
-      
-         <!--Task card modals--> 
-         <div class="modal" id="taskOneModal" tabindex="-1" aria-labelledby="taskOneModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="taskOneModalLabel">Task One</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                Insert Text 
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
           </div>
         </div>
-        <div class="modal" id="taskTwoModal" tabindex="-1" aria-labelledby="taskTwoModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="taskTwoModalLabel">Task Two</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                Insert Text
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal" id="taskThreeModal" tabindex="-1" aria-labelledby="taskThreeModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="taskThreeModalLabel">Task Three</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                Insert Text
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal" id="taskFourModal" tabindex="-1" aria-labelledby="taskFourModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="taskFourModalLabel">Task Four</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                Insert Text
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal" id="taskFiveModal" tabindex="-1" aria-labelledby="taskFiveModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="taskFiveModalLabel">Task Five</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                Insert Text
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal" id="taskSixModal" tabindex="-1" aria-labelledby="taskSixModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="taskSixModalLabel">Task Six</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                Insert Text
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg">
-         <!--Task form-->
-         <form>
-          <div class="form-box">
+        <div class="col-lg">
+          <!--Task form-->
+          <form>
+            <div class="form-box">
               <label for="Task Name">Name of Task: </label>
-              <input type class="form-control" id="Task Name" placeholder="Task Name">
+              <input type class="form-control" id="Task Name" placeholder="Task Name"> 
 
-               <label for="Description">Task Description:  </label>
-                <textarea class="form-control" id="Description" rows="2" placeholder="Description of Task..."></textarea>
+              <label for="Description">Task Description:  </label>
+              <textarea class="form-control" id="Description" rows="2" placeholder="Description of Task..."></textarea>
 
-                 <label for="Assign">Task Assigned To: </label>
-                  <input type class="form-control" id="Assign" placeholder="Unassigned">
-          
-                  <label for="Due-date-input">Due Date:</label>
-                  <input type="date" name="Due-date-input" id="Due-date-input" value="dd/mm/yyyy">
-          
+              <label for="Assign">Task Assigned To: </label>
+              <input type class="form-control" id="Assign" placeholder="Unassigned">      
+
+              <label for="Due-date-input">Due Date:</label>
+              <input type="date" name="Due-date-input" id="Due-date-input" value="dd/mm/yyyy">   
 
               <select id="Status" placeholder="Status">
                 <option selected disabled>Status</option>
@@ -184,10 +85,107 @@
                 <option>Done</option>
               </select>                
               <input type="submit" value="Submit">
-          </div>      
-        </form>
-      </div>
+            </div>      
+          </form>
+        </div>
       </div>
     </div>
   </body>
+  <!--Task card modals--> 
+  <div class="modal" id="taskOneModal" tabindex="-1" aria-labelledby="taskOneModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="taskOneModalLabel">Task One</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Insert Text 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="taskTwoModal" tabindex="-1" aria-labelledby="taskTwoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="taskTwoModalLabel">Task Two</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Insert Text
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="taskThreeModal" tabindex="-1" aria-labelledby="taskThreeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="taskThreeModalLabel">Task Three</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Insert Text
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="taskFourModal" tabindex="-1" aria-labelledby="taskFourModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="taskFourModalLabel">Task Four</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Insert Text
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="taskFiveModal" tabindex="-1" aria-labelledby="taskFiveModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="taskFiveModalLabel">Task Five</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Insert Text
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="taskSixModal" tabindex="-1" aria-labelledby="taskSixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="taskSixModalLabel">Task Six</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Insert Text
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </html>
