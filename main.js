@@ -1,8 +1,9 @@
 class TaskCard {
-  constructor(name, description, assignedTo) {
+  constructor(name, description, assignedTo, dueDate) {
     this.name = name;
     this.description = description;
     this.assignedTo = assignedTo;
+    this.dueDate = dueDate;
   }
 }
 
@@ -13,9 +14,10 @@ let showAlerts = (alertType) => {
   let inputAlert = document.getElementById('name-alert');
   let descriptionAlert = document.getElementById('description-alert');
   let assignedToAlert = document.getElementById('assign-alert');
+  let dueDateAlert = document.getElementById('date-alert');
 
   function inputAlertDisplay() {
-    if(alertType === "No name" || alertType === "Task too small"){
+    if(alertType === "No name" || alertType === "Task too small") {
       switch(alertType) {
         case "No name":
           inputAlert.style.display = 'block';
@@ -24,8 +26,7 @@ let showAlerts = (alertType) => {
         case "Input too small":
           inputAlert.style.display = 'block';
           inputAlert.innerHTML = 'Task name needs to be longer than 8 characters';
-        break;
-    
+        break;   
         default:
           console.log("task broke");
       } 
@@ -33,7 +34,7 @@ let showAlerts = (alertType) => {
   }
 
   function descriptionAlertDisplay() {
-    if(alertType === "No description" || alertType === "Description too small"){
+    if(alertType === "No description" || alertType === "Description too small") {
       switch(true) {
         case alertType === "No description":
           descriptionAlert.style.display = 'block';
@@ -50,7 +51,7 @@ let showAlerts = (alertType) => {
   }
 
   function assignedToAlertDisplay() {
-    if(alertType === "Unassigned" || alertType === "Assign input too small"){
+    if(alertType === "Unassigned" || alertType === "Assign input too small") {
       switch(true) {
         case alertType === "Unassigned":
           assignedToAlert.style.display = 'block';
@@ -66,12 +67,16 @@ let showAlerts = (alertType) => {
     }
   }
 
-
-
-  
+  function dateAlertDisplay() {
+    if(alertType === "No date") {
+        dueDateAlert.style.display = 'block';
+        dueDateAlert.innerHTML = 'Please pick a due date for this task';
+      }
+    }
   inputAlertDisplay();
   descriptionAlertDisplay();
   assignedToAlertDisplay();
+  dateAlertDisplay();
 
   // Stops webpage from refreshing after user clicks submit
    document.getElementById("myForm").addEventListener("submit", function(e) {
@@ -89,10 +94,13 @@ function resetAlerts() {
   let inputAlert = document.getElementById('name-alert');
   let descriptionAlert = document.getElementById('description-alert');
   let assignedToAlert = document.getElementById('assign-alert');
-  
+  let dateAlert = document.getElementById('date-alert');
+
   inputAlert.style.display = 'none';
   descriptionAlert.style.display = 'none';
   assignedToAlert.style.display = 'none';
+  dateAlert.style.display = 'none';
+
   console.log("Resetting Alerts");
 }
 
@@ -104,7 +112,6 @@ let validateForm = () => {
   var assign = document.getElementById('assign').value;
   var date = document.getElementById('date-input').value;
 
-  console.log(typeof(date));
   let newTask = new TaskCard;
 
   if(validateTaskName(task) === false)
@@ -116,9 +123,10 @@ let validateForm = () => {
   if(validateAssign(assign) === false)
     newTask.assignedTo = assign;
 
-  validateDate(date);  
+  if(validateDate(date) === false)
+  newTask.dueDate = date; 
 
-   console.log(JSON.stringify(newTask));
+  console.log(JSON.stringify(newTask));
  }
 
 let validateTaskName = (input) =>{
@@ -126,11 +134,11 @@ let validateTaskName = (input) =>{
   switch(true) {
     case input.length === 0:
       error = "No name";
-    showAlerts(error);
+      showAlerts(error);
     break;
     case input.length <= 8:
       error = "Task too small";
-    showAlerts(error);
+      showAlerts(error);
     break;
     default:
       return false;
@@ -141,12 +149,12 @@ let validateDescription = (input) => {
   let error;
   switch(true) {
     case input.length === 0:
-    error = "No description";
-    showAlerts(error);
+      error = "No description";
+      showAlerts(error);
     break;
     case input.length <= 15:
       error = "Description too small";
-    showAlerts(error);
+      showAlerts(error);
     break;
     default:
       return false;
@@ -157,12 +165,12 @@ let validateAssign = (input) => {
   let error;
   switch(true) {
     case input.length === 0:
-    error = "Unassigned";
-    showAlerts(error);
+      error = "Unassigned";
+      showAlerts(error);
     break;
     case input.length <= 8:
       error = "Assign input too small";
-    showAlerts(error);
+      showAlerts(error);
     break;
     default:
       return false;
@@ -173,8 +181,8 @@ let validateDate = (input) => {
   let error;
   switch(true) {
     case input.length === 0:
-    error = "No date";
-    showAlerts(error);
+      error = "No date";
+      showAlerts(error);
     break;
     default:
       return false;
