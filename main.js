@@ -1,9 +1,10 @@
 class TaskCard {
-  constructor(name, description, assignedTo, dueDate) {
+  constructor(name, description, assignedTo, dueDate, status) {
     this.name = name;
     this.description = description;
     this.assignedTo = assignedTo;
     this.dueDate = dueDate;
+    this.status = status;
   }
 }
 
@@ -15,6 +16,7 @@ let showAlerts = (alertType) => {
   let descriptionAlert = document.getElementById('description-alert');
   let assignedToAlert = document.getElementById('assign-alert');
   let dueDateAlert = document.getElementById('date-alert');
+  let statusAlert = document.getElementById('status-alert');
 
   function inputAlertDisplay() {
     if(alertType === "No name" || alertType === "Task too small") {
@@ -71,12 +73,21 @@ let showAlerts = (alertType) => {
     if(alertType === "No date") {
         dueDateAlert.style.display = 'block';
         dueDateAlert.innerHTML = 'Please pick a due date for this task';
-      }
     }
+  }
+
+  function statusAlertDisplay() {
+    if(alertType === "No status") {
+      statusAlert.style.display = 'block';
+      statusAlert.innerHTML = 'Please select a status';
+    }
+  }
+
   inputAlertDisplay();
   descriptionAlertDisplay();
   assignedToAlertDisplay();
   dateAlertDisplay();
+  statusAlertDisplay();
 
   // Stops webpage from refreshing after user clicks submit
    document.getElementById("myForm").addEventListener("submit", function(e) {
@@ -95,11 +106,13 @@ function resetAlerts() {
   let descriptionAlert = document.getElementById('description-alert');
   let assignedToAlert = document.getElementById('assign-alert');
   let dateAlert = document.getElementById('date-alert');
+  let statusAlert = document.getElementById('status-alert');
 
   inputAlert.style.display = 'none';
   descriptionAlert.style.display = 'none';
   assignedToAlert.style.display = 'none';
   dateAlert.style.display = 'none';
+  statusAlert.style.display = 'none';
 
   console.log("Resetting Alerts");
 }
@@ -111,6 +124,7 @@ let validateForm = () => {
   var description = document.getElementById('description').value;
   var assign = document.getElementById('assign').value;
   var date = document.getElementById('date-input').value;
+  var status = document.getElementById('status').value;
 
   let newTask = new TaskCard;
 
@@ -124,7 +138,10 @@ let validateForm = () => {
     newTask.assignedTo = assign;
 
   if(validateDate(date) === false)
-  newTask.dueDate = date; 
+    newTask.dueDate = date; 
+
+  if(validateStatus(status) === false);
+    newTask.status = status;
 
   console.log(JSON.stringify(newTask));
  }
@@ -187,4 +204,16 @@ let validateDate = (input) => {
     default:
       return false;
   }
+}
+
+let validateStatus = (input) => {
+  let error;
+  switch(true) {
+    case input === "Status":
+      error = "No status";
+      showAlerts(error);
+    break;
+    default:
+      return false;
+  } 
 }
