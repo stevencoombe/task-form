@@ -6,14 +6,20 @@
           rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
         <!--Bootstrap JS link-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
-          integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
+          integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script> -->
+
+          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
         <!--Main.css link-->    
         <link rel="stylesheet" href="main.css">
 
         <!--index.js link-->  
-        <script src="index.js"></script>
+        <script src="main.js"></script>
+
+
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -66,30 +72,41 @@
         </div>
         <div class="col-lg">
           <!--Task form-->
-          <form>
+          <form class ="needs-validation" id= "myForm" novalidate>
             <div class="form-box">
               <label for="Task Name">Name of Task: </label>
-              <input type class="form-control" id="Task Name" placeholder="Task Name"> 
+              <input type class="form-control" id="task-name" placeholder="Task Name"> 
+              <div class='alert alert-danger' style='display:none' id='name-alert'></div>
 
               <label for="Description">Task Description:  </label>
-              <textarea class="form-control" id="Description" rows="2" placeholder="Description of Task..."></textarea>
+              <textarea class="form-control" id="description" rows="2" placeholder="Description of Task..."></textarea>
+              <div class='alert alert-danger' style='display:none' id='description-alert'></div>
 
               <label for="Assign">Task Assigned To: </label>
-              <input type class="form-control" id="Assign" placeholder="Unassigned">      
+              <input type class="form-control" id="assign" placeholder="Unassigned">      
+              <div class='alert alert-danger' style='display:none' id='assign-alert'>
+                Success! (div with Bootstrap alert class) </div>
 
-              <label for="Due-date-input">Due Date:</label>
-              <input type="date" name="Due-date-input" id="Due-date-input" value="dd/mm/yyyy">   
+              <label for="Date-input">Due Date:</label>
+              <input type="date" name="Date-input" id="date-input" value="dd/mm/yyyy">   
+              <div class='alert alert-danger' style='display:none' id='date-alert'>
+                Success! (div with Bootstrap alert class) </div>
 
-              <select id="Status" placeholder="Status">
+              <select id="status" placeholder="Status">
                 <option selected disabled>Status</option>
                 <option>Todo</option>
                 <option>In Progress</option>
                 <option>Review</option>
                 <option>Done</option>
-              </select>                
-              <input type="submit" value="Submit">
+              </select>               
+              <div class='alert alert-danger' style='display:none' id='status-alert'>
+                Success! (div with Bootstrap alert class) </div>
+
+              <button class="btn btn-primary" type="button" id="liveAlertBtn" 
+                onclick="validateForm()">Submit</button>
+
             </div>      
-          </form>
+          </form>         
         </div>
       </div>
     </div>
