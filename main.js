@@ -8,7 +8,9 @@ class TaskCard {
   }
 }
 
+var taskManager = [];
 var displayedAlert = false;
+
 
 let showAlerts = (alertType) => {
   
@@ -89,11 +91,6 @@ let showAlerts = (alertType) => {
   dateAlertDisplay();
   statusAlertDisplay();
 
-  // Stops webpage from refreshing after user clicks submit
-   document.getElementById("myForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-  });
-
   if(displayedAlert === false) {
     alert("There's an error with the information that was given");
     displayedAlert = true;
@@ -128,6 +125,12 @@ let validateForm = () => {
 
   let newTask = new TaskCard;
 
+  // Stops webpage from refreshing after user clicks submit
+  document.getElementById("myForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+  });
+
+  // If there are no issues with validation, these will return false
   if(validateTaskName(task) === false)
     newTask.name = task;
 
@@ -143,7 +146,15 @@ let validateForm = () => {
   if(validateStatus(status) === false);
     newTask.status = status;
 
-  console.log(JSON.stringify(newTask));
+  // TODO: Fix this so that it will only accept validated tasks
+  taskManager.push(JSON.stringify(newTask));
+
+  // Test logic for accessing specific parts of the array
+  for (let i = 0; i < taskManager.length; i++) {
+    let taskObject = JSON.parse(taskManager[i]);
+    let taskName = taskObject.name;
+    console.log(taskName);
+  }
  }
 
 let validateTaskName = (input) =>{
