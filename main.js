@@ -95,6 +95,7 @@ let showAlerts = (alertType) => {
     alert("There's an error with the information that was given");
     displayedAlert = true;
   }
+  displayedAlert = false;
 }
 
 function resetAlerts() {
@@ -123,39 +124,33 @@ let validateForm = () => {
   var date = document.getElementById('date-input').value;
   var status = document.getElementById('status').value;
 
-  let newTask = new TaskCard;
-
-  // Stops webpage from refreshing after user clicks submit
-  document.getElementById("myForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-  });
-
   // If there are no issues with validation, these will return false
-  if(validateTaskName(task) === false)
-    newTask.name = task;
+  if (validateTaskName(task) === false &&
+  validateDescription(description) === false &&
+  validateAssign(assign) === false &&
+  validateDate(date) === false &&
+  validateStatus(status) === false){
 
-  if(validateDescription(description) === false)
-    newTask.description = description; 
+    let newTask = new TaskCard(task, description, assign, date, status);
+    taskManager.push(newTask);
 
-  if(validateAssign(assign) === false)
-    newTask.assignedTo = assign;
-
-  if(validateDate(date) === false)
-    newTask.dueDate = date; 
-
-  if(validateStatus(status) === false);
-    newTask.status = status;
-
-  // TODO: Fix this so that it will only accept validated tasks
-  taskManager.push(JSON.stringify(newTask));
-
-  // Test logic for accessing specific parts of the array
-  for (let i = 0; i < taskManager.length; i++) {
-    let taskObject = JSON.parse(taskManager[i]);
-    let taskName = taskObject.name;
-    console.log(taskName);
+    // Display the task information
+    displayTasks();
+  } else {
+    // If any validation fails, set isValidated to false
+    isValidated = false;
+    } 
+  
+  if (!isValidated) {
+      showAlerts("Error"); // Show a generic error message
   }
- }
+}
+
+// Stops webpage from refreshing after clicking submit
+document.getElementById("myForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  validateForm();
+});
 
 let validateTaskName = (input) =>{
   let error;
@@ -164,7 +159,7 @@ let validateTaskName = (input) =>{
       error = "No name";
       showAlerts(error);
     break;
-    case input.length <= 8:
+    case input.length <= 5:
       error = "Task too small";
       showAlerts(error);
     break;
@@ -180,7 +175,7 @@ let validateDescription = (input) => {
       error = "No description";
       showAlerts(error);
     break;
-    case input.length <= 15:
+    case input.length <= 10:
       error = "Description too small";
       showAlerts(error);
     break;
@@ -196,7 +191,7 @@ let validateAssign = (input) => {
       error = "Unassigned";
       showAlerts(error);
     break;
-    case input.length <= 8:
+    case input.length <= 4:
       error = "Assign input too small";
       showAlerts(error);
     break;
@@ -228,3 +223,28 @@ let validateStatus = (input) => {
       return false;
   } 
 }
+
+// Display the tasks on the web page
+function displayTasks() {
+  var taskContainer = document.querySelector(".task-bottom-row");taskContainer.innerHTML = "";
+
+  taskManager.forEach(function(task) {
+    var card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="card-body">
+        <h5 class="card-title">${task.name}</h5>
+        <p class="card-text">${task.description}</p>
+        <p class="card-text">${task.assignedTo}</p>
+        <p class="card-text">${task.dueDate}</p>
+        <p class="card-text">${task.status}</p>
+      </div>
+    `;
+
+    taskContainer.appendChild(card);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+  displayTasks();
+});
