@@ -12,8 +12,6 @@
         <!--Main.css link-->    
         <link rel="stylesheet" href="main.css">
 
-        <!--index.js link--> 
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Task Form</title>
@@ -45,22 +43,7 @@
                   </div>
               </div>
           </div>
-          <div class="task-bottom-row">
-              <div class="card card text-white bg-success mb-3">
-                <div class="card-body">
-                  <h5 class="card-title stretched-link" data-bs-toggle="modal" data-bs-target="#taskFourModal">Task 4</h5>
-                </div>
-              </div>
-              <div class="card card text-white bg-danger mb-3">
-                <div class="card-body">
-                  <h5 class="card-title stretched-link" data-bs-toggle="modal" data-bs-target="#taskFiveModal">Task 5</h5>
-                </div>
-              </div>
-              <div class="card card text-white bg-dark mb-3">
-                <div class="card-body">
-                  <h5 class="card-title stretched-link" data-bs-toggle="modal" data-bs-target="#taskSixModal">Task 6</h5>
-                </div>
-              </div>
+          <div class="task-bottom-row">         
           </div>
         </div>
         <div class="col-lg">
@@ -94,14 +77,13 @@
 
               <button class="btn btn-primary" type="button" id="liveAlertBtn" 
                 onclick="validateForm()">Submit</button>
-
-              <script src="main.js"></script>
-
             </div>      
           </form>         
         </div>
       </div>
     </div>
+    <!--main.js link--> 
+    <script src="main.js"></script>
   </body>
   <!--Task card modals--> 
   <div class="modal" id="taskOneModal" tabindex="-1" aria-labelledby="taskOneModalLabel" aria-hidden="true">
@@ -112,152 +94,14 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <label>Task Description:</label>
-          Example Task 1.
-          <br>
-          <label>Assigned:</label>
-          Steven
-          <br>
-          <label>Date:</label>
-          10/05/2023
-          <br>
-          <label>Status:</label>
-          Review 
         </div>
         <div class="modal-footer">
+          <div id="buttonContainer"></div>
+          <button type="button" class="btn btn-danger" id="delete-button" onclick ="deleteTask()">Delete</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
-  <div class="modal" id="taskTwoModal" tabindex="-1" aria-labelledby="taskTwoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="taskTwoModalLabel">Task Two</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <label>Task Description:</label>
-          Example Task 2.
-          <br>
-          <label>Assigned:</label>
-          Luke
-          <br>
-          <label>Date:</label>
-          22/06/2023
-          <br>
-          <label>Status:</label>
-          Done 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal" id="taskThreeModal" tabindex="-1" aria-labelledby="taskThreeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="taskThreeModalLabel">Task Three</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <label>Task Description:</label>
-          Example Task 3.
-          <br>
-          <label>Assigned:</label>
-          Matthew
-          <br>
-          <label>Date:</label>
-          15/05/2023
-          <br>
-          <label>Status:</label>
-          In Progress 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal" id="taskFourModal" tabindex="-1" aria-labelledby="taskFourModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="taskFourModalLabel">Task Four</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <label>Task Description:</label>
-          Example Task 4.
-          <br>
-          <label>Assigned:</label>
-          Steven
-          <br>
-          <label>Date:</label>
-          09/08/2023
-          <br>
-          <label>Status:</label>
-          Todo 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal" id="taskFiveModal" tabindex="-1" aria-labelledby="taskFiveModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="taskFiveModalLabel">Task Five</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <label>Task Description:</label>
-          Example Task 5.
-          <br>
-          <label>Assigned:</label>
-          Luke
-          <br>
-          <label>Date:</label>
-          28/07/2023
-          <br>
-          <label>Status:</label>
-          In Progress 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal" id="taskSixModal" tabindex="-1" aria-labelledby="taskSixModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="taskSixModalLabel">Task Six</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <label>Task Description:</label>
-          Example Task 6.
-          <br>
-          <label>Assigned:</label>
-          Matthew
-          <br>
-          <label>Date:</label>
-          01/06/2023
-          <br>
-          <label>Status:</label>
-          Done 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
+
 </html>

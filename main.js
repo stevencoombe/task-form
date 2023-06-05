@@ -1,4 +1,5 @@
 class TaskCard {
+  // TODO: Fix up class
   constructor(name, description, assignedTo, dueDate, status) {
     this.name = name;
     this.description = description;
@@ -11,9 +12,9 @@ class TaskCard {
 var taskManager = [];
 var displayedAlert = false;
 
-
 let showAlerts = (alertType) => {
   
+    // TODO: Refactor alert code so it's not spaghetti 
   let inputAlert = document.getElementById('name-alert');
   let descriptionAlert = document.getElementById('description-alert');
   let assignedToAlert = document.getElementById('assign-alert');
@@ -95,7 +96,6 @@ let showAlerts = (alertType) => {
     alert("There's an error with the information that was given");
     displayedAlert = true;
   }
-  displayedAlert = false;
 }
 
 function resetAlerts() {
@@ -106,51 +106,55 @@ function resetAlerts() {
   let dateAlert = document.getElementById('date-alert');
   let statusAlert = document.getElementById('status-alert');
 
+  tasksValidated = false;
+
+
   inputAlert.style.display = 'none';
   descriptionAlert.style.display = 'none';
   assignedToAlert.style.display = 'none';
   dateAlert.style.display = 'none';
   statusAlert.style.display = 'none';
-
-  console.log("Resetting Alerts");
 }
 
 let validateForm = () => {
-  // Reserts alerts after user clicks submit
+  // Stops webpage from refreshing after clicking submit
+document.getElementById("myForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+});
+
+    // Reserts alerts after user clicks submit
   resetAlerts();
   var task = document.getElementById('task-name').value;
   var description = document.getElementById('description').value;
   var assign = document.getElementById('assign').value;
   var date = document.getElementById('date-input').value;
   var status = document.getElementById('status').value;
-
   // If there are no issues with validation, these will return false
-  if (validateTaskName(task) === false &&
-  validateDescription(description) === false &&
-  validateAssign(assign) === false &&
-  validateDate(date) === false &&
-  validateStatus(status) === false){
+  let newTask = new TaskCard;
 
-    let newTask = new TaskCard(task, description, assign, date, status);
-    taskManager.push(newTask);
+  if(validateTaskName(task) === false)
+    newTask.name = task;
 
+  if(validateDescription(description) === false)
+    newTask.description = description; 
+
+  if(validateAssign(assign) === false)
+    newTask.assignedTo = assign;
+
+  if(validateDate(date) === false)
+    newTask.dueDate = date; 
+
+  if(validateStatus(status) === false);
+    newTask.status = status;
+
+  if (displayedAlert === false) {
+    taskManager.push(JSON.stringify(newTask));
     // Display the task information
-    displayTasks();
-  } else {
-    // If any validation fails, set isValidated to false
-    isValidated = false;
-    } 
-  
-  if (!isValidated) {
-      showAlerts("Error"); // Show a generic error message
+    displayTasks(taskManager);
   }
-}
+} 
 
-// Stops webpage from refreshing after clicking submit
-document.getElementById("myForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  validateForm();
-});
+
 
 let validateTaskName = (input) =>{
   let error;
@@ -225,26 +229,75 @@ let validateStatus = (input) => {
 }
 
 // Display the tasks on the web page
-function displayTasks() {
-  var taskContainer = document.querySelector(".task-bottom-row");taskContainer.innerHTML = "";
+let displayTasks = (tasks) => {
+  let taskContainer = document.querySelector(".task-bottom-row");
+  taskContainer.innerHTML = "";
 
-  taskManager.forEach(function(task) {
-    var card = document.createElement("div");
+  let modal = document.querySelector(".modal");
+  let modalTitle = modal.querySelector(".modal-title");
+  let modalBody = modal.querySelector(".modal-body");
+  let modalFooter = modal.querySelector(".modal-footer");
+
+  var deleteButton = modalFooter.querySelector("#delete-button")
+  var id = 0;
+
+  for(var i = 0; i < tasks.length; i++) {
+
+    let task = JSON.parse(tasks[i]);
+    let card = document.createElement("div");
+
+    id = i;
+    console.log(task);
+    console.log(tasks.length);
+
+    modalBody.id = i;
     card.className = "card";
+    card.setAttribute('data-bs-toggle', 'modal');
+    card.setAttribute('data-bs-target', '#taskOneModal');
+    card.id = i;
     card.innerHTML = `
       <div class="card-body">
         <h5 class="card-title">${task.name}</h5>
-        <p class="card-text">${task.description}</p>
-        <p class="card-text">${task.assignedTo}</p>
-        <p class="card-text">${task.dueDate}</p>
-        <p class="card-text">${task.status}</p>
       </div>
     `;
 
+    card.addEventListener('click', function() {
+
+      console.log("Card id is " + card.id);
+
+      modalTitle.textContent = `${task.name}`;
+      modalBody.innerHTML = `
+      <label>Task description:</label>
+      <p>${task.description}</p>
+      <label>Assigned to:</label>
+      <p>${task.assignedTo}</p>
+      <label>Due date:</label>
+      <p>${task.dueDate}</p>
+      <label>Task status:</label>
+      <p>${task.status}</p>
+      `;
+    });
+
+    // deleteButton.addEventListener('click', function() {
+    //   console.log("Deleting " + card.id);
+    //   tasks.splice(0, modal.id);
+    //   console.log(tasks);
+    //   displayTasks();
+    // });
+
     taskContainer.appendChild(card);
-  });
+  }
 }
 
-document.addEventListener("DOMContentLoaded", function(event) { 
-  displayTasks();
-});
+function deleteTask() {
+
+  let modal = document.querySelector(".modal");
+  let modalBody = modal.querySelector(".modal-body");
+
+ // console.log("this is " + modalBody.id);
+  console.log(taskManager[modalBody.id]);
+}
+
+// document.addEventListener("DOMContentLoaded", function(event) { 
+//   displayTasks();
+// });
