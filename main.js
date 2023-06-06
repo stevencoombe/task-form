@@ -1,16 +1,71 @@
-class TaskCard {
-  // TODO: Fix up class
-  constructor(name, description, assignedTo, dueDate, status) {
-    this.name = name;
-    this.description = description;
-    this.assignedTo = assignedTo;
-    this.dueDate = dueDate;
-    this.status = status;
+class TaskManager{
+  constructor(taskId = 0) {
+    this.tasks = [];
+    this.taskId = taskId;
+  }
+
+  addTask(name, description, assignedTo, dueDate, status) {
+    const task = {
+      id: this.taskId++,
+      name: name,
+      description: description,
+      assignedTo: assignedTo,
+      dueDate: dueDate,
+      status: status
+    };
+
+    this.tasks.push(task);
+  }
+
+  displayTask() {
+    console.log(this.tasks);
+    let taskContainer = document.querySelector(".task-top-row");
+    taskContainer.innerHTML = "";
+   
+    let modal = document.querySelector(".modal");
+    let modalTitle = modal.querySelector(".modal-title");
+    let modalBody = modal.querySelector(".modal-body");
+    let modalFooter = modal.querySelector(".modal-footer");
+    let deleteButton = modalFooter.querySelector("#delete-button")
+
+    for (let i = 0; i < this.tasks.length; i++) {
+      const task = this.tasks[i];
+
+      console.log(task);
+
+      let card = document.createElement("div");
+      card.className = "card";
+      card.setAttribute('data-bs-toggle', 'modal');
+      card.setAttribute('data-bs-target', '#taskOneModal');
+      card.id = i;
+      card.innerHTML = `
+      <div class="card-body">
+        <h5 class="card-title">${task.name}</h5>
+      </div>
+    `;
+
+    card.addEventListener('click', function() {      
+      modalTitle.textContent = `${task.name}`;
+      modalBody.innerHTML = `
+      <label>Task description:</label>
+      <p>${task.description}</p>
+      <label>Assigned to:</label>
+      <p>${task.assignedTo}</p>
+      <label>Due date:</label>
+      <p>${task.dueDate}</p>
+      <label>Task status:</label>
+      <p>${task.status}</p>
+      `;
+    });
+      taskContainer.appendChild(card);
+    }
   }
 }
 
-var taskManager = [];
+
+
 var displayedAlert = false;
+let newTask = new TaskManager;
 
 let showAlerts = (alertType) => {
   
@@ -129,32 +184,19 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
   var assign = document.getElementById('assign').value;
   var date = document.getElementById('date-input').value;
   var status = document.getElementById('status').value;
-  // If there are no issues with validation, these will return false
-  let newTask = new TaskCard;
 
-  if(validateTaskName(task) === false)
-    newTask.name = task;
-
-  if(validateDescription(description) === false)
-    newTask.description = description; 
-
-  if(validateAssign(assign) === false)
-    newTask.assignedTo = assign;
-
-  if(validateDate(date) === false)
-    newTask.dueDate = date; 
-
-  if(validateStatus(status) === false);
-    newTask.status = status;
+    validateTaskName(task);
+    validateDescription(description)
+    validateAssign(assign)
+    validateDate(date)
+    validateStatus(status)
 
   if (displayedAlert === false) {
-    taskManager.push(JSON.stringify(newTask));
-    // Display the task information
-    displayTasks(taskManager);
+    //taskManager.push(JSON.stringify(newTask))
+    newTask.addTask(task, description, assign, date, status);
+    newTask.displayTask();
   }
 } 
-
-
 
 let validateTaskName = (input) =>{
   let error;
@@ -227,77 +269,3 @@ let validateStatus = (input) => {
       return false;
   } 
 }
-
-// Display the tasks on the web page
-let displayTasks = (tasks) => {
-  let taskContainer = document.querySelector(".task-bottom-row");
-  taskContainer.innerHTML = "";
-
-  let modal = document.querySelector(".modal");
-  let modalTitle = modal.querySelector(".modal-title");
-  let modalBody = modal.querySelector(".modal-body");
-  let modalFooter = modal.querySelector(".modal-footer");
-
-  var deleteButton = modalFooter.querySelector("#delete-button")
-  var id = 0;
-
-  for(var i = 0; i < tasks.length; i++) {
-
-    let task = JSON.parse(tasks[i]);
-    let card = document.createElement("div");
-
-    id = i;
-    console.log(task);
-    console.log(tasks.length);
-
-    modalBody.id = i;
-    card.className = "card";
-    card.setAttribute('data-bs-toggle', 'modal');
-    card.setAttribute('data-bs-target', '#taskOneModal');
-    card.id = i;
-    card.innerHTML = `
-      <div class="card-body">
-        <h5 class="card-title">${task.name}</h5>
-      </div>
-    `;
-
-    card.addEventListener('click', function() {
-
-      console.log("Card id is " + card.id);
-
-      modalTitle.textContent = `${task.name}`;
-      modalBody.innerHTML = `
-      <label>Task description:</label>
-      <p>${task.description}</p>
-      <label>Assigned to:</label>
-      <p>${task.assignedTo}</p>
-      <label>Due date:</label>
-      <p>${task.dueDate}</p>
-      <label>Task status:</label>
-      <p>${task.status}</p>
-      `;
-    });
-
-    // deleteButton.addEventListener('click', function() {
-    //   console.log("Deleting " + card.id);
-    //   tasks.splice(0, modal.id);
-    //   console.log(tasks);
-    //   displayTasks();
-    // });
-
-    taskContainer.appendChild(card);
-  }
-}
-
-function deleteTask() {
-
-  let modal = document.querySelector(".modal");
-  let modalBody = modal.querySelector(".modal-body");
-
- // console.log("this is " + modalBody.id);
-  console.log(taskManager[modalBody.id]);
-}
-
-// document.addEventListener("DOMContentLoaded", function(event) { 
-//   displayTasks();
-// });
