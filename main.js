@@ -17,6 +17,10 @@ class TaskManager{
     this.tasks.push(task);
   }
 
+  deleteTask(id) {
+    this.tasks = this.tasks.filter(task => task.id !== id);
+  }
+
   displayTask() {
     console.log(this.tasks);
     let taskContainer = document.querySelector(".task-top-row");
@@ -27,6 +31,8 @@ class TaskManager{
     let modalBody = modal.querySelector(".modal-body");
     let modalFooter = modal.querySelector(".modal-footer");
     let deleteButton = modalFooter.querySelector("#delete-button")
+    
+    let currentTaskId = null;
 
     for (let i = 0; i < this.tasks.length; i++) {
       const task = this.tasks[i];
@@ -56,9 +62,21 @@ class TaskManager{
       <label>Task status:</label>
       <p>${task.status}</p>
       `;
+      currentTaskId = task.id;
     });
       taskContainer.appendChild(card);
     }
+    
+    deleteButton.addEventListener('click', function() {
+      if (currentTaskId !== null) {
+        newTask.deleteTask(currentTaskId);
+        newTask.displayTask();
+        
+        var myModalEl = document.getElementById('taskOneModal');
+        var modal = bootstrap.Modal.getInstance(myModalEl);
+        modal.hide();
+      }
+    });
   }
 }
 
