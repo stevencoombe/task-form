@@ -44,12 +44,12 @@
           <div class="task-bottom-row">         
         </div>
       </div>
-        <div class="col-5">
+        <div class="col-5"> <!--Changed it from "col-lg to col-5"-->
           <!--Task form-->
           <form class ="needs-validation" id= "myForm" novalidate>
             <div class="form-box">
               <label for="Task Name">Name of Task: </label>
-              <input type class="form-control" id="task-name" placeholder="Task Name"> 
+              <input type="text" class="form-control" id="task-name" placeholder="Task Name"> 
               <div class='alert alert-danger' style='display:none' id='name-alert'></div>
 
               <label for="Description">Task Description:  </label>
@@ -57,7 +57,7 @@
               <div class='alert alert-danger' style='display:none' id='description-alert'></div>
 
               <label for="Assign">Task Assigned To: </label>
-              <input type class="form-control" id="assign" placeholder="Unassigned">      
+              <input class="form-control" id="assign" placeholder="Unassigned">      
               <div class='alert alert-danger' style='display:none' id='assign-alert'></div>
 
               <label for="Date-input">Due Date:</label>
@@ -73,8 +73,7 @@
               </select>               
               <div class='alert alert-danger' style='display:none' id='status-alert'></div>
 
-              <button class="btn btn-primary" type="button" id="liveAlertBtn" 
-                onclick="validateForm()">Submit</button>
+              <button class="btn btn-success" type="button" id="liveAlertBtn" onclick="validateForm()">Submit</button>
             </div>      
           </form>         
         </div>
@@ -89,14 +88,13 @@
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="taskOneModalLabel">Task One</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
         </div>
         <div class="modal-footer">
           <div id="buttonContainer"></div>
-          <button type="button" class="btn btn-danger" id="delete-button">Delete</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" id="delete-button">Delete</button>
         </div>
       </div>
     </div>
