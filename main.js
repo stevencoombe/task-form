@@ -42,6 +42,7 @@ class TaskManager{
   
       let card = document.createElement("div");
       card.className = "card";
+      card.style.backgroundColor = task.color;
       card.setAttribute("data-bs-toggle", "modal");
       card.setAttribute("data-bs-target", "#taskOneModal");
       card.id = i;
@@ -59,9 +60,9 @@ class TaskManager{
   
       cardBody.appendChild(cardTitle);
       if (task.status === "Done") {
-        card.style.backgroundColor = "green";
+        card.style.backgroundColor = "#d4af37";
         cardTitle.style.color = "white";
-        doneMessage.classList.add("white-text"); // Apply the CSS class for white color
+        doneMessage.classList.add("white-text");
         cardBody.appendChild(doneMessage);
       } else {
         let markDoneButton = document.createElement("button");
@@ -69,11 +70,10 @@ class TaskManager{
         markDoneButton.textContent = "Mark as Done";
   
         markDoneButton.addEventListener("click", (e) => {
-          e.stopPropagation();
           task.status = "Done";
-          card.style.backgroundColor = "green";
+          card.style.backgroundColor = "#d4af37";
           cardTitle.style.color = "white";
-          doneMessage.classList.add("white-text"); // Apply the CSS class for white color
+          doneMessage.classList.add("white-text");
           cardBody.removeChild(markDoneButton);
           cardBody.appendChild(doneMessage);
         });
@@ -111,7 +111,7 @@ class TaskManager{
         modal.hide();
       }
     });
-  }  
+  }
 }
 
 var displayedAlert = false;
