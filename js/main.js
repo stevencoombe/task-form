@@ -127,9 +127,9 @@ function resetAlerts() {
 
 let validateForm = () => {
   // Stops webpage from refreshing after clicking submit
-document.getElementById("myForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-});
+  document.getElementById("myForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+  });
 
     // Reserts alerts after user clicks submit
   resetAlerts();

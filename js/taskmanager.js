@@ -45,7 +45,6 @@ class TaskManager{
         card.style.backgroundColor = task.color;
         card.setAttribute("data-bs-toggle", "modal");
         card.setAttribute("data-bs-target", "#taskOneModal");
-        card.id = null;
         card.id = i;
     
         let cardBody = document.createElement("div");
