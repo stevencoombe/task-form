@@ -16,7 +16,7 @@ body {
 
 .heading { /*"TASK PLANNER"*/
   text-align: center;
-  text-shadow: -1px 1px 2px rgb(76, 106, 94);
+  text-shadow: -1px 1px 2px rgb(81, 100, 96);
 }
 
 .card { /*Task Cards*/
@@ -24,7 +24,8 @@ width: calc((100% - 60px)/ 3);
 height: 150px;
 background-color: rgb(237, 236, 234);
 border-radius: 5px;
-box-shadow: 2px 2px 5px rgb(99, 99, 99);
+box-shadow: 0px 3px 5px rgb(101, 101, 101);
+text-shadow: 0px 0.8px 1px rgb(134, 134, 134);
 overflow: auto;
 text-align: center;
 margin: 10px;
@@ -49,8 +50,13 @@ margin: 10px;
 .form-box { /*Task Manager, Task creator*/
 margin: 20px auto;
 padding: 20px;
-box-shadow: 3px 3px 10px rgb(81, 106, 96);
-text-shadow: -1px -1px 5px rgb(230, 230, 230);
+box-shadow: 1px 3.5px 10px rgb(81, 106, 96);
+text-shadow: 0px 0.8px 1px rgb(134, 134, 134);
+}
+
+.form-box .form-control,
+.form-box select {
+  box-shadow: 0px 1px 5px rgb(170, 170, 170, 0.5);
 }
 
 form {
@@ -69,10 +75,14 @@ form {
   width: 120px;
 }
 
+#liveAlertBtn {
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
+}
+
 label { /*Labels for tasks*/
   display: block;
   margin-bottom: 2px;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .container { /**/
