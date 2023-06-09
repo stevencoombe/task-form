@@ -18,6 +18,8 @@ if (typeof(Storage) !== "undefined") {
       newTask.addTask(obj.name, obj.description, obj.assignedTo, obj.dueDate, obj.status);
       newTask.displayTask();
     });
+  } else {
+    console.log("Browser does not support localStorage");
   }
 }
 
