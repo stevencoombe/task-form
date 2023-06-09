@@ -22,7 +22,7 @@
     <div class="container">
       <h1 class="heading">TASK PLANNER</h1>
         <div class="row">
-          <div class="col-7">
+          <div class="col-8">
             <!--Task layout cards-->
             <div class="task-top-row">
                 <!-- <div class="card">
@@ -44,38 +44,38 @@
           <div class="task-bottom-row">         
         </div>
       </div>
-        <div class="col-5"> <!--Changed it from "col-lg to col-5"-->
+        <div class="col-4"> <!--Changed it from "col-lg to col-5"-->
           <!--Task form-->
-          <form class ="needs-validation" id= "myForm" novalidate>
-            <div class="form-box">
-              <label for="Task Name">Name of Task: </label>
-              <input type="text" class="form-control" id="task-name" placeholder="Task Name"> 
+          <form class="needs-validation" id="myForm" novalidate>
+            <div class="form-box" style="background-color: transparent;">
+              <label for="Task Name">Task Name:</label>
+              <input type="text" class="form-control" id="task-name">
               <div class='alert alert-danger' style='display:none' id='name-alert'></div>
-
-              <label for="Description">Task Description:  </label>
-              <textarea class="form-control" id="description" rows="2" placeholder="Description of Task..."></textarea>
+          
+              <label for="Description">Task Description:</label>
+              <textarea class="form-control" id="description" rows="2"></textarea>
               <div class='alert alert-danger' style='display:none' id='description-alert'></div>
-
-              <label for="Assign">Task Assigned To: </label>
-              <input class="form-control" id="assign" placeholder="Unassigned">      
+          
+              <label for="Assign">Assigned To:</label>
+              <input class="form-control" id="assign">
               <div class='alert alert-danger' style='display:none' id='assign-alert'></div>
-
+          
               <label for="Date-input">Due Date:</label>
-              <input type="date" name="Date-input" id="date-input" value="dd/mm/yyyy">   
+              <input type="date" name="Date-input" id="date-input" value="dd/mm/yyyy" class="vertical-resize horizontal-resize">
               <div class='alert alert-danger' style='display:none' id='date-alert'></div>
-
+          
               <select id="status" placeholder="Status">
                 <option selected disabled>Status</option>
                 <option>Todo</option>
                 <option>In Progress</option>
                 <option>Review</option>
                 <option>Done</option>
-              </select>               
+              </select>
               <div class='alert alert-danger' style='display:none' id='status-alert'></div>
-
+          
               <button class="btn btn-success" type="button" id="liveAlertBtn" onclick="validateForm()">Submit</button>
-            </div>      
-          </form>         
+            </div>
+          </form>                   
         </div>
       </div>
     </div>
